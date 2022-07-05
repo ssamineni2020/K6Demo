@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-  exported-variables:
-    - K6_CLOUD_TOKEN
-
 phases:
   pre_build:
     commands:
@@ -12,7 +8,7 @@ phases:
   build:
     commands:
       - echo Run performance test
-      - docker run -i -e K6_CLOUD_TOKEN=${K6_CLOUD_TOKEN} loadimpact/k6 cloud - <scripts/cloud-test.js
+      - docker run -v ./test.js:/test.js -i loadimpact/k6 run /test.js
   post_build:
     commands:
       - echo Performance test complete
