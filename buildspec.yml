@@ -8,7 +8,7 @@ phases:
   build:
     commands:
       - echo Run performance tests
-      - docker run -v \`pwd`/test.js:/test.js -i loadimpact/k6 run /test.js
+      - docker run -v `pwd`/test.js:/test.js -i loadimpact/k6 run /test.js
   post_build:
     commands:
       - echo Performance test completed
